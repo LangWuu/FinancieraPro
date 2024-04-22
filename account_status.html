@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Status</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <header class="header">
+    <div class="logo">
+      <img src="{{ url_for('static', filename='financiera.jpeg') }}" alt="Logo">  
+    </div>
+    <div class="user-info">
+      <p>Hola, {{ account_info.username }}</p>
+      <a href="/login">Cerrar sesión</a>
+    </div>
+  </header>
+  <main class="main">
+    <div class="section">
+      <h2>Mi productos</h2>
+      <p>Última visita 2 de abril de 2024 2:14 pm</p>
+      <div class="product-details">
+        <div class="product">
+          <p>Cuentamiga / {{ account_info.username }} - Activa - ${{ account_info.balance }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="section">
+      <h2>Mis transferencias y avances</h2>
+      <p>Cuentamiga / {{ account_info.username }} </p>
+      <div class="transfer-details">
+        <p>Saldo Disponible: ${{ account_info.balance }}</p>
+        <p>Saldo total: ${{ account_info.balance }}</p>
+        <p>Saldo bolsillo: $0,00</p>
+      </div>
+      <div class="buttons">
+        <a href="#">Realizar transferencia</a>
+        <a href="#">Realizar pagos</a>
+        <a href="#">Ver más detalles</a>
+      </div>
+    </div>
+    <div class="section transfer-section"> <!-- Aquí añade la clase "transfer-section" -->
+      <h2>Realizar Transferencia</h2>
+      <form action="/transfer" method="post" class="transfer-form">
+        <label for="to_account">Cuenta Destino:</label><br>
+        <input type="text" id="to_account" name="to_account" required><br>
+        <label for="amount">Cantidad:</label><br>
+        <input type="number" id="amount" name="amount" min="0.01" step="0.01" required><br>
+        <input type="submit" value="Transferir">
+      </form>
+      {% if messageTranfer %}
+        <p>{{ messageTranfer }}</p>
+      {% endif %}
+    </div>
+    <div class="section transaction-history"> <!-- Agregada la clase "transaction-history" para la sección de historial de transacciones -->
+      <h3>Historial de Transacciones</h3>
+      <ul>
+        {% for transaction in account_info.sender_transactions %}
+          <li>{{ transaction.type }} enviado a {{ transaction.to_account }} una cantidad de: {{ transaction.amount }}</li>
+        {% endfor %}
+        {% for transaction in account_info.receiver_transactions %}
+          <li>{{ transaction.type }} recibido de {{ transaction.from_account }} una cantidad de: {{ transaction.amount }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="transactions">
+      <h4>ÚLTIMOS MOVIMIENTOS</h4> <!-- Corregida la etiqueta de cierre de h4 -->
+      <p>17 marzo 2024 - $0,86 ABONO DE INTERESES</p>
+    </div>
+  </main>
+</body>
+</html>

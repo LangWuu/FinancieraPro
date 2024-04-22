@@ -1,0 +1,164 @@
+/* Estilos generales */
+body {
+  font-family: 'Poppins', sans-serif; /* Cambié la fuente a Poppins para un aspecto moderno */
+  margin: 0;
+  padding: 0;
+  background-color: #121212; /* Cambié el color de fondo a un tono oscuro */
+  color: #fff; /* Cambié el color del texto a blanco para mayor contraste */
+  overflow-x: hidden; /* Evita que aparezca la barra de desplazamiento horizontal */
+}
+
+.container {
+  max-width: 1200px; /* Amplié el ancho máximo del contenedor */
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Animación para resaltar elementos al cargar */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(-20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Animación para botones */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* Estilos para el formulario */
+form {
+  background-color: rgba(255, 255, 255, 0.1); /* Cambié el color de fondo con transparencia */
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.2); /* Efecto de sombra más pronunciado */
+  animation: fadeIn 0.5s ease forwards; /* Animación de entrada */
+}
+
+/* Estilos para los campos de entrada y botones */
+input[type="text"],
+input[type="password"],
+input[type="submit"] {
+  width: calc(100% - 22px); /* Corregí el ancho para compensar el padding */
+  padding: 15px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 25px; /* Hice los bordes más redondeados */
+  background-color: rgba(255, 255, 255, 0.2); /* Añadí un poco más de transparencia */
+  color: #fff;
+  outline: none;
+  transition: background-color 0.3s ease; /* Transición suave */
+}
+
+input[type="submit"] {
+  background-color: #ff6f61; /* Cambié el color del botón */
+  cursor: pointer;
+  animation: pulse 1.5s infinite; /* Animación de pulsación */
+}
+
+input[type="submit"]:hover {
+  background-color: #ff9f51; /* Cambié el color del botón al pasar el ratón */
+}
+
+/* Estilos para encabezados y párrafos */
+h1, h2, h3 {
+  font-weight: 500; /* Aumenté un poco el peso de la fuente */
+  text-align: center;
+}
+
+p {
+  line-height: 1.6; /* Aumenté un poco el interlineado para una mejor legibilidad */
+}
+
+/* Estilos para la sección de encabezado */
+.header {
+  background-color: rgba(255, 255, 255, 0.05); /* Color de fondo con transparencia */
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000; /* Asegura que el encabezado esté por encima de otros elementos */
+}
+
+.header .logo img {
+  width: 120px;
+}
+
+.header .user-info {
+  text-align: right;
+}
+
+.header .user-info p {
+  margin-bottom: 5px;
+}
+
+/* Estilos para la sección principal */
+.main {
+  padding: 160px 20px 20px; /* Aumenté el relleno superior para evitar que el contenido se solape con el encabezado */
+}
+
+/* Estilos para las secciones */
+.section {
+  margin-bottom: 60px; /* Aumenté el margen inferior para un mejor espaciado */
+  padding: 30px;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
+  animation: fadeIn 0.5s ease forwards;
+  transition: box-shadow 0.3s ease; /* Transición suave para la sombra */
+}
+
+.section:hover {
+  box-shadow: 0 0 60px rgba(255, 255, 255, 0.4); /* Efecto de sombra más pronunciado al pasar el ratón */
+}
+
+/* Estilos para los botones */
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.buttons a {
+  margin: 0 10px;
+  padding: 15px 30px;
+  border: 2px solid #fff;
+  border-radius: 30px;
+  color: #fff;
+  text-decoration: none;
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.buttons a:hover {
+  background-color: #fff;
+  color: #0f0f0f;
+}
+
+/* Estilos para la sección de transacciones */
+.transactions {
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
+}
+
+/* Estilos adicionales */
+.section:nth-of-type(odd) {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.section:nth-of-type(even) {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.transfer-section {
+  display: flex; /* Make it a flexbox for better positioning */
+  flex-direction: column; /* Stack elements vertically */
+  width: 90%; /* Set width to 90% to make it bigger */
+  margin-left: 50px; /* Move it 50px to the left */
+  border: 1px solid #ddd; /* Optional: add a border */
+  padding: 20px; /* Optional: add padding */
+  border-radius: 10px; /* Optional: add rounded corners */
+}
